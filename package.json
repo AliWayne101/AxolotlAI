@@ -1,0 +1,21 @@
+{
+  "name": "axolotlai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/bot.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "keywords": [],
+  "author": "Ali Wains",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.6.0",
+    "discord-api-types": "^0.37.37",
+    "discord.js": "^14.8.0",
+    "dotenv": "^16.0.3",
+    "gpt-3-encoder": "^1.1.4",
+    "mongoose": "^7.0.3",
+    "openai": "^3.2.1"
+  }
+}
