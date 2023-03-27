@@ -65,6 +65,7 @@ module.exports = {
                                     .setColor(0x18e1ee)
                                     .setTimestamp(Date.now())
                                     .addFields([
+                                        { name: `Question: `, value: _prompt.value },
                                         { name: `Result: ${ i + 1 } out of ${ totalEntries }`, value: response.data.choices[0].text.slice(startingPoint, endPoint) },
                                         { name: 'Total Tokens consumed', value: `${ response.data.usage.total_tokens }` }
                                     ]);
@@ -86,7 +87,6 @@ module.exports = {
                                     .setColor(0x18e1ee)
                                     .setTimestamp(Date.now())
                                     .addFields([
-                                        { name: `Question`, value: _prompt.value },
                                         { name: `Result: ${ totalEntries } out of ${ totalEntries }`, value: response.data.choices[0].text.slice(totalIterations * textLimit, response.data.choices[0].text.length) },
                                         { name: 'Total Tokens consumed', value: `${ response.data.usage.total_tokens }` }
                                     ]);
@@ -101,7 +101,7 @@ module.exports = {
                                 .setColor(0x18e1ee)
                                 .setTimestamp(Date.now())
                                 .addFields([
-                                    { name: `Question`, value: _prompt.value },
+                                    { name: `Question: `, value: _prompt.value },
                                     { name: `Result:`, value: response.data.choices[0].text },
                                     { name: 'Total Tokens consumed', value: `${ response.data.usage.total_tokens }` }
                                 ]);
