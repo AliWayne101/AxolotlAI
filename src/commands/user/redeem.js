@@ -20,11 +20,11 @@ module.exports = {
     var url = `http://waynecrypt.ml/?guildid=${interaction.guild.id}&token=${randNum.toString()}`;
 
     const embed = new EmbedBuilder()
-    .setTitle(`Redeem Credits`)
+    .setTitle(`Redeem Link`)
     .setColor(0x18e1ee)
     .setTimestamp(Date.now())
     .addFields([
-        { name: 'Redeem Link', value: 'Redeem free credits using this link' }
+        { name: 'Redeem Credits', value: 'Redeem free credits using this link' }
     ])
     .setURL(url);
     await interaction.reply({
