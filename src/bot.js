@@ -19,6 +19,8 @@ for (const folder of functionFolders) {
     require(`./functions/${folder}/${file}`)(client);
 }
 
+//When adding people to whitelist @everyone must work, and while removing owner must not remove itself
+
 client.handleEvents();
 client.handleCommands();
 client.login(token);
