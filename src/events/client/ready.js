@@ -6,10 +6,10 @@ module.exports = {
         console.log(`Ready! ${client.user.tag} is logged in and online`);
         await client.user.setPresence({
             activities: [{
-                name: "To your commands",
+                name: "your commands",
                 type: ActivityType.Listening
             }],
             status: "online"
-        }).catch(console.log);
+        });
     }
 }
