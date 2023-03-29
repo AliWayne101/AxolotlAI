@@ -36,11 +36,10 @@ module.exports = {
             let totalQueryTokens = tokens.length + _useMaxTokens;
             
             if (userExists !== undefined) {
-                if (totalQueryTokens <= profileData.guildCredit) {
-                    const newTokens = profileData.guildCredit - tokens.length;
-                    const update = await Guild.findOneAndUpdate({ guildId: interaction.guild.id }, { guildCredit: newTokens }, { returnNewDocument: true });
-
+                if (totalQueryTokens <= profileData.guildCredit) {    
                     try {
+                        const newTokens = profileData.guildCredit - tokens.length;
+                        const update = await Guild.findOneAndUpdate({ guildId: interaction.guild.id }, { guildCredit: newTokens }, { returnNewDocument: true });
                         const openai = new OpenAIApi(configuration);
                         const response = await openai.createCompletion({
                             model: "text-davinci-003",
