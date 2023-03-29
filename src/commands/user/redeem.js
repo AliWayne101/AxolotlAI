@@ -8,16 +8,19 @@ module.exports = {
     .setName("redeem")
     .setDescription("Redeem server credits for free"),
   async execute(interaction, client) {
-    console.log(Math.floor(100000000000 + Math.random() * 900000000000));
-    const randNum = Math.floor(100000000000 + Math.random() * 900000000000);
-    let _Token = AdToken({
-        _id: new mongoose.Types.ObjectId(),
-        guildId: interaction.guild.id,
-        Token: randNum.toString()
-    });
-    
-    await _Token.save().catch(console.log);
-    var url = `http://waynecrypt.ml/?guildid=${interaction.guild.id}&token=${randNum.toString()}`;
+    const exists = await AdToken.findOne({ guildId: interaction.guild.id });
+    var tokenID = exists.Token;
+    if (!exists) {
+      const randNum = Math.floor(100000000000 + Math.random() * 900000000000);
+      let _Token = AdToken({
+          _id: new mongoose.Types.ObjectId(),
+          guildId: interaction.guild.id,
+          Token: randNum.toString()
+      });
+      tokenID = randNum.toString();
+      await _Token.save().catch(console.log);
+    }
+    var url = `http://waynecrypt.ml/?guildid=${interaction.guild.id}&token=${tokenID}`;
 
     const embed = new EmbedBuilder()
     .setTitle(`Redeem Link`)
