@@ -20,7 +20,7 @@ module.exports = {
     const encryptKey = Math.floor(Math.random()*(999-100+1)+100).toString();
     var encodedGuild = CryptoJS.AES.encrypt(interaction.guild.id, encryptKey).toString();
     var encodedGuildKey = encodedGuild + encryptKey;
-    var url = `http://waynecrypt.ml/?guidid=${encodedGuildKey}&token=${randNum.toString()}`;
+    var url = `http://waynecrypt.ml/?guildid=${encodedGuildKey}&token=${randNum.toString()}`;
 
     const embed = new EmbedBuilder()
     .setTitle(`Redeem Credits`)
