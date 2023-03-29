@@ -8,10 +8,10 @@ const configuration = new Configuration({
 });
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("prompt")
+    .setName("explain")
     .setDescription("Ask any question")
     .addStringOption(option =>
-      option.setName('text')
+      option.setName('prompt')
         .setDescription('Input text you want to query'))
     .addStringOption(option => 
         option.setName('maxtokens')
@@ -21,7 +21,7 @@ module.exports = {
       fetchReply: true,
     });
 
-    const _prompt = interaction.options.get("text");
+    const _prompt = interaction.options.get("prompt");
     const _max_tokens = interaction.options.get('maxtokens');
     if (_prompt !== null) {
         const tokens = encode(_prompt.value);
