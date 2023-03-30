@@ -75,8 +75,6 @@ module.exports = {
             temperature: 0.7,
             max_tokens: _useMaxTokens
         });
-        console.info(response.data);
-        console.info(response.data.usage);
         
         const tokensAfterCompletion = parseInt(response.data.usage.total_tokens);
         const newTokens = profileData.guildCredit - tokensAfterCompletion;
