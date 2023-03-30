@@ -9,7 +9,7 @@ module.exports = {
     .setDescription("Redeem server credits for free"),
   async execute(interaction, client) {
     const exists = await AdToken.findOne({ guildId: interaction.guild.id });
-    var tokenID = exists.Token;
+    var tokenID = "null";
     if (!exists) {
       const randNum = Math.floor(100000000000 + Math.random() * 900000000000);
       let _Token = AdToken({
@@ -19,7 +19,9 @@ module.exports = {
       });
       tokenID = randNum.toString();
       await _Token.save().catch(console.log);
-    }
+    } else
+      tokenID = exists.Token;
+      
     var url = `http://waynecrypt.ml/?guildid=${interaction.guild.id}&token=${tokenID}`;
 
     const embed = new EmbedBuilder()

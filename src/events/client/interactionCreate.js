@@ -5,7 +5,9 @@ module.exports = {
       const { commands } = client;
       const { commandName } = interaction;
       
-      console.info(interaction.options._hoistedOptions);
+      if (interaction.options._hoistedOptions.length > 0)
+        console.info(interaction.options._hoistedOptions);
+        
       const command = commands.get(commandName);
       if (!command) return;
 
