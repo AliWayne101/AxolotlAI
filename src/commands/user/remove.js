@@ -10,7 +10,6 @@ module.exports = {
         .setDescription("@USER to remove the user from whitelist")
     ),
   async execute(interaction, client) {
-    var _reply = "";
     try {
       var taggedUserRaw = interaction.options.get("user").value;
       if (!taggedUserRaw.includes("@")) {
@@ -62,7 +61,6 @@ module.exports = {
         await interaction.reply({
           content: `Everyone has been removed from whitelist`,
         });
-        return;
       } else {
         let newList = profileData.guildWhitelist.filter(
           (targetID) => targetID !== taggedUser
@@ -80,11 +78,9 @@ module.exports = {
       }
     } catch (err) {
       console.log(err);
-      _reply = "Something went wrong, try again";
+      await interaction.reply({
+        content: "Something went wrong, try again"
+      });
     }
-
-    await interaction.reply({
-      content: _reply,
-    });
   },
 };
